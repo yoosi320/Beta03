@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"timer.h": "c",
+			"dma.h": "c",
+			"bus_i2c.h": "c",
+			"rx_nrf24l01.h": "c"
+		}
+	}
+}
