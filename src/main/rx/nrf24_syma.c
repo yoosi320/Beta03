@@ -288,8 +288,11 @@ static void symaNrf24Setup(rx_spi_protocol_e protocol)
         symaRfChannelCount = SYMA_X5C_RF_CHANNEL_COUNT;
         memcpy(symaRfChannels, symaRfChannelsX5C, SYMA_X5C_RF_CHANNEL_COUNT);
     }
-
+ 
+ 
     //yoosi 추가 구문 시작 200709    
+
+    
     NRF24L01_WriteReg(NRF24L01_00_CONFIG, 0X82);
     delayMicroseconds(5);
 	NRF24L01_Activate(0x73);

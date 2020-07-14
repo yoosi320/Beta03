@@ -1,10 +1,28 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "./obj/main/betaflight_CJMCU.elf",
+            "name": "Debug_stlink_test",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "interface": "swd",
+            "device": "STM32F103x",
+            "runToMain": true,
+            "svdFile": "D:/Eclipse/SVD/STM32F103xx.svd",
+            "preRestartCommands": [
+                "C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201701241841/scripts/target/stm32f1x.cfg"
+
+            ]
+
+            
+        },
         
         {
             "cwd": "${workspaceRoot}",
-            "executable": "D:/dev/RX/beta01/obj/main/betaflight_CJMCU.elf",
+            "executable": "D:/dev/RX/beta03/obj/main/betaflight_CJMCU.elf",
             "name": "Debug Microcontroller",
             "request": "launch",
             "type": "cortex-debug",
@@ -23,9 +41,9 @@
                 "miDebuggerPath": "d:/dev/gcc/5_4_1/bin/arm-none-eabi-gdb.exe"
             },
             "targetArchitecture": "arm",
-            "program": "D:/dev/RX/beta01/obj/main/betaflight_CJMCU.elf",
+            "program": "D:/dev/RX/beta03/obj/main/betaflight_CJMCU.elf",
             "setupCommands": [
-                { "text": "file D:/dev/RX/beta01/obj/main/betaflight_CJMCU.elf" },
+                { "text": "file D:/dev/RX/beta03/obj/main/betaflight_CJMCU.elf" },
                 { "text": "set remotetimeout 30" },
                 { "text": "target remote localhost:50250" },
                 { "text": "monitor halt" },
@@ -33,9 +51,8 @@
                 { "text": "load" },
                 { "text": "info target" }
             ],
-            "svdFile": "D:/Eclipse/SVD/STM32F103xx.svd",
             "externalConsole": false,
-            "cwd": "D:/dev/RX/beta01"
+            "cwd": "D:/dev/RX/beta03"
         }
     ]
 }

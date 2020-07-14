@@ -238,11 +238,11 @@ void NRF24L01_SetChannel(uint8_t channel)
 
 bool NRF24L01_ReadPayloadIfAvailable(uint8_t *data, uint8_t length)
 {
-    if (NRF24L01_ReadReg(NRF24L01_17_FIFO_STATUS) & BV(NRF24L01_17_FIFO_STATUS_RX_EMPTY)) {
-        return false;
+    if (NRF24L01_ReadReg(NRF24L01_07_STATUS) & BV(NRF24L01_07_STATUS_RX_DR)) {
+        NRF24L01_ReadPayload(data, length);
+        return true;
     }
-    NRF24L01_ReadPayload(data, length);
-    return true;
+    return false;
 }
 
 #ifndef UNIT_TEST

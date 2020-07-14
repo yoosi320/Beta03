@@ -151,7 +151,7 @@ void spiInitDevice(SPIDevice device)
     spiInit.SPI_NSS = SPI_NSS_Soft;
     spiInit.SPI_FirstBit = SPI_FirstBit_MSB;
     spiInit.SPI_CRCPolynomial = 7;
-    spiInit.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_32;  //yoosi320 200709
+    spiInit.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64;  //yoosi320 200709
 
     if (spi->leadingEdge) {
         spiInit.SPI_CPOL = SPI_CPOL_Low;
@@ -225,7 +225,7 @@ uint32_t spiTimeoutUserCallback(SPI_TypeDef *instance)
 // return uint8_t value or -1 when failure
 uint8_t spiTransferByte(SPI_TypeDef *instance, uint8_t data)
 {
-    uint16_t spiTimeout = 1000;
+    uint16_t spiTimeout = 100;
 
     while (SPI_I2S_GetFlagStatus(instance, SPI_I2S_FLAG_TXE) == RESET)
         if ((spiTimeout--) == 0)
@@ -236,7 +236,7 @@ uint8_t spiTransferByte(SPI_TypeDef *instance, uint8_t data)
 #else
     SPI_I2S_SendData(instance, data);
 #endif
-    spiTimeout = 1000;
+    spiTimeout = 100;
     while (SPI_I2S_GetFlagStatus(instance, SPI_I2S_FLAG_RXNE) == RESET)
         if ((spiTimeout--) == 0)
             return spiTimeoutUserCallback(instance);
