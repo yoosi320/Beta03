@@ -332,7 +332,7 @@ static void symaNrf24Setup(rx_spi_protocol_e protocol)
 	NRF24L01_ReadReg(0x00);
 	NRF24L01_ReadRegisterMulti(0x0a, rxTxAddr, 5);
 
-    NRF24L01_SetRxMode();
+    //NRF24L01_SetRxMode();
     //yoosi 추가 구문 종료 200709
 
     /*    //yoosi 200709

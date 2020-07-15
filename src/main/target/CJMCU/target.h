@@ -33,6 +33,10 @@
 #define ACC
 #define USE_ACC_MPU6050
 
+#define GYRO_MPU6050_ALIGN      CW90_DEG_FLIP
+#define ACC_MPU6050_ALIGN       CW90_DEG_FLIP
+
+
 #define BARO
 #define USE_BARO_BMP280
 

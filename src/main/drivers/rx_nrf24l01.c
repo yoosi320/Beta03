@@ -240,6 +240,9 @@ bool NRF24L01_ReadPayloadIfAvailable(uint8_t *data, uint8_t length)
 {
     if (NRF24L01_ReadReg(NRF24L01_07_STATUS) & BV(NRF24L01_07_STATUS_RX_DR)) {
         NRF24L01_ReadPayload(data, length);
+        NRF24L01_WriteData(0xe1,0x00);
+        NRF24L01_WriteData(0xe2,0x00);
+        NRF24L01_WriteReg(NRF24L01_07_STATUS, BV(NRF24L01_07_STATUS_RX_DR) | BV(NRF24L01_07_STATUS_TX_DS) | BV(NRF24L01_07_STATUS_MAX_RT));
         return true;
     }
     return false;
