@@ -23,7 +23,7 @@
 
 #define LED0                    PB6
 #define LED1                    PB7
-//#define LED2                    PC15
+//#define LED2                    PB6
 
 #undef BEEPER
 
@@ -124,7 +124,8 @@
 #define BRUSHED_MOTORS
 #define DEFAULT_FEATURES        FEATURE_MOTOR_STOP
 #define SKIP_SERIAL_PASSTHROUGH
-#undef USE_CLI
+//#undef USE_CLI
+#define USE_CLI
 
 // Since the CJMCU PCB has holes for 4 motors in each corner we can save same flash space by disabling support for other mixers.
 #define USE_QUAD_MIXER_ONLY
@@ -142,5 +143,5 @@
 #define TARGET_IO_PORTB         0xffff
 #define TARGET_IO_PORTC         (BIT(13)|BIT(14)|BIT(15))
 
-#define USABLE_TIMER_CHANNEL_COUNT 14
+#define USABLE_TIMER_CHANNEL_COUNT 4
 #define USED_TIMERS             (TIM_N(1) | TIM_N(2) | TIM_N(3) | TIM_N(4))
