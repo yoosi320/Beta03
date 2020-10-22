@@ -13,9 +13,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Cleanflight.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * branch Test !!!!
- * 
  */
 
 #include <stdbool.h>
@@ -32,8 +29,8 @@
 
 #include "barometer_bmp280.h"
 #include "barometer_spi_bmp280.h"
-#define SF_KP   1040384   // 4Time  //yoosi
-#define SF_KT   524288   // 4Time   //yoosi
+#define SF_KP   253952   // 16Time  //yoosi                                                                                  
+#define SF_KT   1572864   // 4Time   //yoosi
 
 
 #ifdef BARO
@@ -204,12 +201,10 @@ static int32_t bmp280_compensate_T(int32_t adc_T)
 {
     /*
     int32_t var1, var2, T;
-
     var1 = ((((adc_T >> 3) - ((int32_t)bmp280_cal.dig_T1 << 1))) * ((int32_t)bmp280_cal.dig_T2)) >> 11;
     var2  = (((((adc_T >> 4) - ((int32_t)bmp280_cal.dig_T1)) * ((adc_T >> 4) - ((int32_t)bmp280_cal.dig_T1))) >> 12) * ((int32_t)bmp280_cal.dig_T3)) >> 14;
     bmp280_cal.t_fine = var1 + var2;
     T = (bmp280_cal.t_fine * 5 + 128) >> 8;
-
     return T;*/  //yoosi
 
     //yoosi compensate_T
@@ -264,7 +259,6 @@ STATIC_UNIT_TESTED void bmp280_calculate(int32_t *pressure, int32_t *temperature
     uint32_t p;
     t = bmp280_compensate_T(bmp280_ut);
     p = bmp280_compensate_P(bmp280_up);
-
     if (pressure)
         *pressure = (int32_t)(p / 256);
     if (temperature)
