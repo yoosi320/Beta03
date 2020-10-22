@@ -133,8 +133,11 @@ bool bmp280Detect(baroDev_t *baro)
 
     // set oversampling + power mode (forced), and start sampling
     //busWriteRegister(busdev, BMP280_CTRL_MEAS_REG, BMP280_MODE);
-    i2cBusWriteRegister(0x06, 0x26); // 6measurements pr.sec //4Times
-	i2cBusWriteRegister(0x07, 0xA0); //  external sensor//4 measurements// 4Time  
+    //i2cBusWriteRegister(0x06, 0x26); // 4measurements pr.sec //64 Times                 //yoosi320 201021
+	//i2cBusWriteRegister(0x07, 0xA0); // external sensor//4 measurements// 1Time      //yoosi320 201021
+    i2cBusWriteRegister(0x06, 0x64); // 64 measurements pr.sec //16Times   
+	i2cBusWriteRegister(0x07, 0x11); // internal sensor// 2 measurements// 2Time      957.6ms 
+    
 	i2cBusWriteRegister(0x08, 0x07); //contiuous pressure and temperature measurement
 	i2cBusWriteRegister(0x09, 0x04); //enab1le Pshift /
 

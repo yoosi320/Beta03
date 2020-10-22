@@ -25,7 +25,7 @@
 #define BMP280_STAT_REG                      (0xF3)  /* Status Register */
 #define BMP280_CTRL_MEAS_REG                 (0xF4)  /* Ctrl Measure Register */
 #define BMP280_CONFIG_REG                    (0xF5)  /* Configuration Register */
-#define BMP280_PRESSURE_MSB_REG              (0xF7)  /* Pressure MSB Register */
+#define BMP280_PRESSURE_MSB_REG              (0x00)  /* Pressure MSB Register */  //yoosi
 #define BMP280_PRESSURE_LSB_REG              (0xF8)  /* Pressure LSB Register */
 #define BMP280_PRESSURE_XLSB_REG             (0xF9)  /* Pressure XLSB Register */
 #define BMP280_TEMPERATURE_MSB_REG           (0xFA)  /* Temperature MSB Reg */

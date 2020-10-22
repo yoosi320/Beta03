@@ -10,7 +10,8 @@
 			"dma.h": "c",
 			"bus_i2c.h": "c",
 			"rx_nrf24l01.h": "c",
-			"stm32f10x_spi.h": "c"
+			"stm32f10x_spi.h": "c",
+			"barometer.h": "c"
 		}
 	}
 }

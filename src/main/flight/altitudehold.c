@@ -140,7 +140,7 @@ void updateAltHoldState(void)
     if (!FLIGHT_MODE(BARO_MODE)) {
         ENABLE_FLIGHT_MODE(BARO_MODE);
         AltHold = EstAlt;
-        initialThrottleHold = rcData[THROTTLE];
+        initialThrottleHold = 1513;//rcData[THROTTLE];  //yoosi320
         errorVelocityI = 0;
         altHoldThrottleAdjustment = 0;
     }
